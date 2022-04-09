@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/phili/Documents/informatik/android_projects/RunningProgressApp/app/src/main/res/drawable/ic_baseline_date_range_24.xml" value="0.2115" />
+        <entry key="..\:/Users/phili/Documents/informatik/android_projects/RunningProgressApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/phili/Documents/informatik/android_projects/RunningProgressApp/app/src/main/res/layout/fragment_home_activity.xml" value="0.26666666666666666" />
+        <entry key="..\:/Users/phili/Documents/informatik/android_projects/RunningProgressApp/app/src/main/res/layout/fragment_input_activity.xml" value="0.34479166666666666" />
+        <entry key="..\:/Users/phili/Documents/informatik/android_projects/RunningProgressApp/app/src/main/res/layout/fragment_input_results_activity.xml" value="0.2611111111111111" />
+        <entry key="..\:/Users/phili/Documents/informatik/android_projects/RunningProgressApp/app/src/main/res/layout/fragment_show_results_activity.xml" value="0.34479166666666666" />
+        <entry key="..\:/Users/phili/Documents/informatik/android_projects/RunningProgressApp/app/src/main/res/layout/rv_running_results.xml" value="0.34479166666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

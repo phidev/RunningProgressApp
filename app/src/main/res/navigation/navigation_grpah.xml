@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_grpah"
+    app:startDestination="@id/homeFragmentActivity">
+
+    <fragment
+        android:id="@+id/homeFragmentActivity"
+        android:name="com.phidev.runningprogressapp.fragments.HomeFragmentActivity"
+        android:label="fragment_home_activity"
+        tools:layout="@layout/fragment_home_activity" >
+        <action
+            android:id="@+id/action_homeFragmentActivity_to_showResultsActivity"
+            app:destination="@id/showResultsActivity"
+            app:enterAnim="@android:anim/fade_in" />
+        <action
+            android:id="@+id/action_homeFragmentActivity_to_inputResultsActivity"
+            app:destination="@id/inputResultsActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/showResultsActivity"
+        android:name="com.phidev.runningprogressapp.fragments.ShowResultsActivity"
+        android:label="fragment_show_results_activity"
+        tools:layout="@layout/fragment_show_results_activity" />
+    <fragment
+        android:id="@+id/inputResultsActivity"
+        android:name="com.phidev.runningprogressapp.fragments.InputResultsActivity"
+        android:label="fragment_input_results_activity"
+        tools:layout="@layout/fragment_input_results_activity" />
+</navigation>

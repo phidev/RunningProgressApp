@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Running Progress App</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ergebnisse_anzeigen">Ergebnisse anzeigen</string>
+    <string name="ergebnis_eintragen">Ergebnis eintragen</string>
+    <string name="hi_philipp">Hi, Philipp</string>
+    <string name="datum">Datum</string>
+    <string name="validation">Der Text wurde validiert.</string>
+    <string name="dauer">Dauer</string>
+    <string name="best_tigen">Bestätigen</string>
+    <string name="trage_deinen_fortschritt_ein">Trage deinen Fortschritt ein!</string>
+    <string name="_12_3">12,3</string>
+    <string name="_02_04_2022">02.04.2022</string>
+    <string name="distanz">Distanz in KM</string>
+    <string name="_01_45_23">01:45:23</string>
+</resources>

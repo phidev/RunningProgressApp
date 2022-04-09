@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvRunningDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/_02_04_2022"
+                android:textAlignment="center" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvRunningDistance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/_12_3"
+                android:textAlignment="center" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvRunningDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/_01_45_23"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
