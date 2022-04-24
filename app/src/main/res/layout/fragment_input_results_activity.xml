@@ -10,7 +10,7 @@
         android:id="@+id/tvHeaderInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/trage_deinen_fortschritt_ein"
+        android:text="@string/track_progress"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,8 +42,7 @@
             android:id="@+id/textInputDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:hint="@string/datum"
+            android:hint="@string/date"
         />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -65,7 +64,8 @@
             android:id="@+id/textInputDistance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/distanz"
+            android:hint="@string/distance"
+            android:maxLength="6"
             android:digits="0123456789,."
             android:inputType="number"/>
 
@@ -88,7 +88,7 @@
             android:id="@+id/textInputTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/dauer"
+            android:hint="@string/duration"
             android:inputType="time" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -98,7 +98,7 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/best_tigen"
+        android:text="@string/submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutDuration" />
