@@ -1,10 +1,10 @@
 - Datepicker. -> ERLEDIGT
 - Fragment Dialog -> MIT PICKERDIALOG ERLEDIGT.
 - Nur ein Klick in das Feld zum öffnen von Date bzw Time Picker. -> ERLEDIGT.
-- Monat anpassen -> ERLEDIGT.
+- Monat anpassen. -> ERLEDIGT.
 - Methode erstellen zum validieren. -> ERLEDIGT.
 - clearFoucs() wenn auf ok geklickt bei Kalendar oder Zeit. -> ERLEDIGT.
-- Strings angepasst. -> Erledigt
+- Strings angepasst. -> Erledigt.
 - SQLite Funktionaltäten.
 - Bei Klick außerhalb Fokus verlieren.
 - Im Landscapemodus anpassen.
@@ -12,3 +12,9 @@
 - Jahr limitieren
 
 val rounded = String.format("%.2f", num).toDouble()
+
+            // val res = editable.toString().replace(",", ".").toEditable()
+            // inputResultsActivityBinding.textInputDistance.text=res
+               val validateDateInput = inputResultsActivityBinding.textInputDate.text
+                        val validateTimeInput = inputResultsActivityBinding.textInputTime.text
+
