@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.TimePicker
 import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 import com.phidev.runningprogressapp.R
 import com.phidev.runningprogressapp.databinding.FragmentInputResultsActivityBinding
 import java.util.*
@@ -50,8 +51,6 @@ class InputResultsActivity : Fragment(), DatePickerDialog.OnDateSetListener,
             year = cal.get(Calendar.YEAR)
             month = cal.get(Calendar.MONTH)
             dayOfMonth = cal.get(Calendar.DAY_OF_MONTH)
-
-
         }
 
         fun validate(editable: Editable?) {
@@ -61,13 +60,15 @@ class InputResultsActivity : Fragment(), DatePickerDialog.OnDateSetListener,
 
                 if (!matchResult) {
                     inputResultsActivityBinding.textInputDistance.error = "Ungültige Eingabe"
-                    Toast.makeText(context, getString(R.string.error_validation), Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, getString(R.string.error_validation), Toast.LENGTH_LONG)
+                        .show()
 
                 } else {
-                    Toast.makeText(context, R.string.success_validation, Toast.LENGTH_LONG).show()
+
+                    Snackbar.make(view, R.string.success_validation, Snackbar.LENGTH_LONG).show()
                     val res = editable.toString().replace(",", ".").toEditable()
-                    inputResultsActivityBinding.textInputDistance.text=res
-                    //inputResultsActivityBinding.textInputDistance.text?.clear()
+                    inputResultsActivityBinding.textInputDistance.text = res
+
                 }
 
             }
@@ -97,7 +98,7 @@ class InputResultsActivity : Fragment(), DatePickerDialog.OnDateSetListener,
             val validateDistanceInput = inputResultsActivityBinding.textInputDistance.text
             validate(validateDistanceInput)
             inputResultsActivityBinding.textInputDate.text?.clear()
-            //inputResultsActivityBinding.textInputDistance.text?.clear()
+            inputResultsActivityBinding.textInputDistance.text?.clear()
             inputResultsActivityBinding.textInputDistance.clearFocus()
             inputResultsActivityBinding.textInputTime.text?.clear()
             inputResultsActivityBinding.textInputTime.clearFocus()
