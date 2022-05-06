@@ -66,6 +66,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/distance"
             android:maxLength="6"
+            android:imeOptions="actionNext"
             android:digits="0123456789,."
             android:inputType="number"/>
 
@@ -85,7 +86,7 @@
         app:startIconDrawable="@drawable/ic_baseline_timer_24">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputTime"
+            android:id="@+id/textInputDuration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/duration"
