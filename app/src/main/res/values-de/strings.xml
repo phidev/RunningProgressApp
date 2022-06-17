@@ -1,23 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Running Progress App</string>
+    <string name="app_name">Running Progress</string>
+
     <!--fragment_home_activity.xml-->
-    <string name="hi_philipp">Hi, Philipp ✌ </string>
     <string name="show_results">Ergebnisse anzeigen</string>
     <string name="enter_result">Ergebnis eintragen</string>
+
+    <!--app_bar.xml-->
+    <string name="about_menu_option">Über</string>
+    <string name="change_name_option">Namen ändern</string>
+
+    <!--AboutAlertDialog()-->
+    <string name="about_alert_title">Über diese App</string>
+    <string name="about_version_number">Version 1.0</string>
+    <string name="about_author">Autor</string>
+    <string name="about_author_name">Philipp Schadt</string>
+
+    <!--changeNameDialog-->
+    <string name="name_alert_question">Wie sollen wir dich nennen?</string>
+    <string name="save_alert_button">Speichern</string>
+    <string name="cancel_alert_button">Abbrechen</string>
+
     <!--fragment_input_activity.xml-->
     <string name="track_progress">Trage deinen Fortschritt ein!</string>
     <string name="date">Datum</string>
     <string name="distance">Distanz in KM</string>
     <string name="duration">Dauer</string>
     <string name="submit">Bestätigen</string>
+
     <!--InputResultActivity.kt-->
     <string name="empty_field">Das Feld darf nicht leer sein!</string>
     <string name="invalid_input">Ungültige Eingabe!</string>
     <string name="success_validation">Super! Dein Eintrag wurde gespeichert. 👍</string>
     <string name="error_validation">ALARM!🤔</string>
+
     <!--rv_running_results.xml-->
     <string name="sample_date">02.04.2022</string>
     <string name="sample_distance">12,3</string>
     <string name="sample_time">01:45:23</string>
+    <string name="about">Über</string>
+
 </resources>
