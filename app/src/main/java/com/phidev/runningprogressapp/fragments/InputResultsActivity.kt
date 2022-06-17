@@ -5,30 +5,34 @@ import android.app.TimePickerDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.TimePicker
-import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.phidev.runningprogressapp.R
+import com.phidev.runningprogressapp.data.ProgressViewModel
+import com.phidev.runningprogressapp.data.entity.Progress
 import com.phidev.runningprogressapp.databinding.FragmentInputResultsActivityBinding
 import java.util.*
 
 class InputResultsActivity : Fragment(), DatePickerDialog.OnDateSetListener,
     TimePickerDialog.OnTimeSetListener {
     private lateinit var inputResultsActivityBinding: FragmentInputResultsActivityBinding
+    private lateinit var mProgressViewModel: ProgressViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         inputResultsActivityBinding =
             FragmentInputResultsActivityBinding.inflate(inflater, container, false)
+
         return inputResultsActivityBinding.root
 
     }
@@ -38,6 +42,7 @@ class InputResultsActivity : Fragment(), DatePickerDialog.OnDateSetListener,
         savedInstanceState: Bundle?
     ) {
         super.onViewCreated(view, savedInstanceState)
+        mProgressViewModel = ViewModelProvider(this).get(ProgressViewModel::class.java)
 
         // Initialisieren von Variablen für Date- und TimeDialog.
         var year = 0
@@ -53,27 +58,6 @@ class InputResultsActivity : Fragment(), DatePickerDialog.OnDateSetListener,
             dayOfMonth = cal.get(Calendar.DAY_OF_MONTH)
         }
 
-        fun validate(editable: Editable?) {
-            if (editable != null) {
-                val regex = "^(?![,.])(\\d{0,})([,.]{0,1})(\\d{0,})([^,.]){1,7}\$".toRegex()
-                val matchResult = regex.matches(editable)
-
-                if (!matchResult) {
-                    inputResultsActivityBinding.textInputDistance.error = "Ungültige Eingabe"
-                    Toast.makeText(context, getString(R.string.error_validation), Toast.LENGTH_LONG)
-                        .show()
-
-                } else {
-
-                    Snackbar.make(view, R.string.success_validation, Snackbar.LENGTH_LONG).show()
-                    val res = editable.toString().replace(",", ".").toEditable()
-                    inputResultsActivityBinding.textInputDistance.text = res
-
-                }
-
-            }
-        }
-
         inputResultsActivityBinding.textInputDate.setOnFocusChangeListener { _, b ->
             if (b) {
                 inputResultsActivityBinding.textInputDate.setRawInputType(InputType.TYPE_NULL)
@@ -81,29 +65,53 @@ class InputResultsActivity : Fragment(), DatePickerDialog.OnDateSetListener,
                 DatePickerDialog(requireActivity(), this, year, month, dayOfMonth).show()
             }
             inputResultsActivityBinding.textInputDate.clearFocus()
-
         }
 
-        inputResultsActivityBinding.textInputTime.setOnFocusChangeListener { _, b ->
+        inputResultsActivityBinding.textInputDuration.setOnFocusChangeListener { _, b ->
             if (b) {
-                inputResultsActivityBinding.textInputTime.setRawInputType(InputType.TYPE_NULL)
+                inputResultsActivityBinding.textInputDuration.setRawInputType(InputType.TYPE_NULL)
                 getDateAndTimeCalendar()
                 TimePickerDialog(requireActivity(), this, hours, minutes, true)
                     .show()
             }
-            inputResultsActivityBinding.textInputTime.clearFocus()
+            inputResultsActivityBinding.textInputDuration.clearFocus()
         }
 
         inputResultsActivityBinding.buttonSubmit.setOnClickListener {
-            val validateDistanceInput = inputResultsActivityBinding.textInputDistance.text
-            validate(validateDistanceInput)
-            inputResultsActivityBinding.textInputDate.text?.clear()
-            inputResultsActivityBinding.textInputDistance.text?.clear()
-            inputResultsActivityBinding.textInputDistance.clearFocus()
-            inputResultsActivityBinding.textInputTime.text?.clear()
-            inputResultsActivityBinding.textInputTime.clearFocus()
+            if (inputResultsActivityBinding.textInputDate.text.isNullOrEmpty() ||
+                inputResultsActivityBinding.textInputDuration.text.isNullOrEmpty() ||
+                        !(validateForm(inputResultsActivityBinding.textInputDistance.text.toString()))
+            ) {
+                Snackbar.make(view, R.string.invalid_input, Snackbar.LENGTH_LONG).show()
+
+            } else {
+                insertDataToDB()
+                Snackbar.make(view, R.string.success_validation, Snackbar.LENGTH_LONG).show()
+                inputResultsActivityBinding.textInputDate.text?.clear()
+                inputResultsActivityBinding.textInputDistance.text?.clear()
+                inputResultsActivityBinding.textInputDistance.clearFocus()
+                inputResultsActivityBinding.textInputDuration.text?.clear()
+                inputResultsActivityBinding.textInputDuration.clearFocus()
+                findNavController().navigate(R.id.action_inputResultsActivity_to_homeFragmentActivity)
+            }
+
         }
 
+    }
+
+    private fun insertDataToDB() {
+        val date = inputResultsActivityBinding.textInputDate.text.toString()
+        val distance = inputResultsActivityBinding.textInputDistance.text.toString()
+        val duration = inputResultsActivityBinding.textInputDuration.text.toString()
+
+        val progress = Progress(0, date, distance, duration)
+        mProgressViewModel.addProgress(progress)
+    }
+
+    private fun validateForm(distance: String?): Boolean {
+        val regex = "^(?![,.])(\\d{0,})([,.]{0,1})(\\d{0,})([^,.]){1,7}\$".toRegex()
+        val matchResult = distance?.let { regex.matches(it) }
+        return distance != null && matchResult == true
     }
 
     private fun String.toEditable(): Editable = Editable.Factory.getInstance()
@@ -117,6 +125,7 @@ class InputResultsActivity : Fragment(), DatePickerDialog.OnDateSetListener,
 
     override fun onTimeSet(p0: TimePicker?, hours: Int, minutes: Int) {
         val resultTime = "$hours:$minutes"
-        inputResultsActivityBinding.textInputTime.text = resultTime.toEditable()
+        inputResultsActivityBinding.textInputDuration.text = resultTime.toEditable()
     }
+
 }

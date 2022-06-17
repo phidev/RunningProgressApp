@@ -27,5 +27,9 @@
         android:id="@+id/inputResultsActivity"
         android:name="com.phidev.runningprogressapp.fragments.InputResultsActivity"
         android:label="fragment_input_results_activity"
-        tools:layout="@layout/fragment_input_results_activity" />
+        tools:layout="@layout/fragment_input_results_activity" >
+        <action
+            android:id="@+id/action_inputResultsActivity_to_homeFragmentActivity"
+            app:destination="@id/homeFragmentActivity" />
+    </fragment>
 </navigation>

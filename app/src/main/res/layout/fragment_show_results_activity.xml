@@ -6,14 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ShowResultsActivity">
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRunningResults"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/rv_running_results"/>
+        tools:listitem="@layout/rv_running_results" />
 </androidx.constraintlayout.widget.ConstraintLayout>
