@@ -10,16 +10,22 @@
     <string name="about_menu_option">Über</string>
     <string name="change_name_option">Namen ändern</string>
 
-    <!--AboutAlertDialog()-->
+    <!--aboutInfoAlertDialog()-->
     <string name="about_alert_title">Über diese App</string>
     <string name="about_version_number">Version 1.0</string>
     <string name="about_author">Autor</string>
     <string name="about_author_name">Philipp Schadt</string>
 
-    <!--changeNameDialog()-->
+    <!--changeNameAlertDialog()-->
     <string name="name_alert_question">Wie sollen wir dich nennen?</string>
     <string name="save_alert_button">Speichern</string>
     <string name="cancel_alert_button">Abbrechen</string>
+
+    <!--deleteAlertDialog()-->
+    <string name="delete_alert_title">Eintrag löschen?</string>
+    <string name="delete_alert_question">Bist du sicher?</string>
+    <string name="delete_alert_button_positive">Ja</string>
+    <string name="delete_alert_button_negative">Nein</string>
 
     <!--fragment_input_activity.xml-->
     <string name="track_progress">Trage deinen Fortschritt ein!</string>
@@ -27,7 +33,7 @@
     <string name="distance">Distanz in KM</string>
     <string name="duration">Dauer</string>
     <string name="submit">Bestätigen</string>
-~+
+
     <!--InputResultActivity.kt-->
     <string name="invalid_input">Bitte überprüfe deine Eingaben! 🤔</string>
     <string name="success_validation">Super! Dein Eintrag wurde gespeichert. 👍</string>
@@ -37,5 +43,6 @@
     <string name="sample_distance">12,3</string>
     <string name="sample_time">01:45:23</string>
     <string name="about">Über</string>
+    <string name="delete_button">Delete Button</string>
 
 </resources>

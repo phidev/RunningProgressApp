@@ -10,16 +10,22 @@
     <string name="about_menu_option">About</string>
     <string name="change_name_option">Change name</string>
 
-    <!--AboutAlertDialog()-->
+    <!--aboutInfoAlertDialog()-->
     <string name="about_alert_title">About this app</string>
     <string name="about_version_number">Version 1.0</string>
     <string name="about_author">Author</string>
     <string name="about_author_name">Philipp Schadt</string>
 
-    <!--changeNameDialog()-->
+    <!--changeNameAlertDialog()-->
     <string name="name_alert_question">How should we call you</string>
     <string name="save_alert_button">Save</string>
     <string name="cancel_alert_button">Cancel</string>
+
+    <!--deleteAlertDialog()-->
+    <string name="delete_alert_title">Delete entry?</string>
+    <string name="delete_alert_question">Are you sure?</string>
+    <string name="delete_alert_button_positive">Yes</string>
+    <string name="delete_alert_button_negative">No</string>
 
     <!--fragment_input_activity.xml-->
     <string name="track_progress">Track your progress!</string>
@@ -37,5 +43,6 @@
     <string name="sample_distance">12,3</string>
     <string name="sample_time">01:45:23</string>
     <string name="about">About</string>
+    <string name="delete_button">Delete Button</string>
 
 </resources>

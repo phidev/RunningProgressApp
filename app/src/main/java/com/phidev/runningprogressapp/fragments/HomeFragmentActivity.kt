@@ -47,7 +47,7 @@ class HomeFragmentActivity : Fragment() {
     private fun checkIfNameIsSet(sharedPreferences: SharedPreferences) {
         val userName = sharedPreferences.getString("name", null)
         if (userName.isNullOrEmpty()) {
-            changeNameDialog(sharedPreferences)
+            changeNameAlertDialog(sharedPreferences)
         } else { showGreetingName(sharedPreferences) }
     }
 
@@ -57,19 +57,19 @@ class HomeFragmentActivity : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.buttonAbout) {
-            aboutInfoDialog()
+            aboutInfoAlertDialog()
         }
 
         if (item.itemId == R.id.changeNameDialog) {
             val sharedPreferences =
                 requireContext().getSharedPreferences("namePreference", Context.MODE_PRIVATE)
-            changeNameDialog(sharedPreferences)
+            changeNameAlertDialog(sharedPreferences)
         }
 
         return super.onOptionsItemSelected(item)
     }
 
-    private fun changeNameDialog(sharedPreferences: SharedPreferences) {
+    private fun changeNameAlertDialog(sharedPreferences: SharedPreferences) {
         val write = sharedPreferences.edit()
         val etNeu = EditText(requireContext())
         val name = etNeu.text
@@ -94,7 +94,7 @@ class HomeFragmentActivity : Fragment() {
         homeFragmentHomeActivityBinding.textViewGreeting.text = userName.toString()
     }
 
-    private fun aboutInfoDialog() {
+    private fun aboutInfoAlertDialog() {
         val aboutAuthor = resources.getString(R.string.about_author)
         val aboutVersionNumber = resources.getString(R.string.about_version_number)
         val aboutAuthorName = resources.getString(R.string.about_author_name)
